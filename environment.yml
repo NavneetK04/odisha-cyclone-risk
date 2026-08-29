@@ -1,0 +1,7 @@
+name: climada_env
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - climada
+  - jupyter

@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / Windows metadata
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
+
+# Large raw geospatial data
+data/**/*.tif
+data/**/*.tiff
+data/**/*.nc
+data/**/*.grib
+data/**/*.grb
+
+# Temporary files
+*.tmp
+*.log
