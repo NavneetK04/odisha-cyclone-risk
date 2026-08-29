@@ -43,7 +43,7 @@ Ranked by importance to the reliability and interpretation of modelled loss:
 | 2 | **Hazard intensity / climate** | +10% wind → +40% AAL | Strong non-linearity in damage response |
 | 3 | **Exposure valuation** | ±30% → ±30% AAL | Approximately linear pass-through |
 | 4 | **Tail sampling** | Increasing at RP ≥ 100 | 100-year estimate rests on ~12 events; 200-year on ~6 |
-| 5 | **EVT extrapolation** | Not used | No stable GPD regime found : see below |
+| 5 | **EVT extrapolation** | Not used | No stable GPD regime found: see below |
 
 ![Sensitivity of Average Annual Loss to Key Assumptions](outputs/figures/sensitivity_tornado.png)
 
@@ -159,7 +159,7 @@ loss do not contribute to the annual aggregate distribution.
 
 **GPD tail extrapolation - rejected.** Mean residual life and parameter stability diagnostics showed the shape parameter drifting increasingly negative at higher thresholds rather than stabilising, indicating no stable extreme-value regime. The negative shape is consistent with a model-imposed loss ceiling arising from finite exposure, a saturating damage function, and a catalogue derived from 54 historical tracks, rather than representing a genuine physical bound on cyclone loss. Fitting a GPD regardless would have produced a smooth, authoritative-looking tail that was not supported by the data. Empirical estimates were retained instead, with sampling uncertainty stated explicitly.
 
-**Emanuel (2011) as the primary vulnerability curve - rejected.** Calibrated on US building stock with a 25.7 m/s damage threshold and 74.7 m/s half-damage point, the function was developed for US conditions. Applying it unexamined to Indian coastal construction would introduce a systematic mismatch of *unknown direction* not, as is sometimes assumed, necessarily an under-estimate. It was therefore retained as a comparison curve to quantify vulnerability uncertainty.
+**Emanuel (2011) as the primary vulnerability curve - rejected.** Calibrated on US building stock with a 25.7 m/s damage threshold and 74.7 m/s half-damage point, the function was developed for US conditions. Applying it unexamined to Indian coastal construction would introduce a systematic mismatch of *unknown direction* - not, as is sometimes assumed, necessarily an under-estimate. It was therefore retained as a comparison curve to quantify vulnerability uncertainty.
 
 **NASA distance-to-coast dataset - bypassed.** The CLIMADA dependency returned HTTP 403. Rather than blocking the pipeline, distance-to-coast was computed independently using WGS84 geodesic distances to Natural Earth coastlines, making the workflow reproducible without the external dependency.
 
@@ -213,6 +213,8 @@ jupyter lab
 ```
 
 Run notebooks in numerical order. The notebooks are designed to be run sequentially, with outputs from earlier stages used by downstream analyses.
+
+Data: The data/ directory is not included in the repository because it contains large external datasets. Before running the notebooks, obtain the required IBTrACS, LitPop, and GPW population datasets and place them under data/ as described in the notebook setup cells.
 
 ---
 
