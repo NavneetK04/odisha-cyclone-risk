@@ -138,7 +138,7 @@ loss do not contribute to the annual aggregate distribution.
 
 - **Wind magnitude comparison (treated separately):** the modelled Fani peak is **68.05 m/s**, while the IBTrACS USA track reports a maximum sustained wind of **150 kn (~77.2 m/s)** at the storm's peak-intensity position. Because the two wind estimates may use different averaging and wind-field conventions, this comparison is treated as an **order-of-magnitude plausibility check rather than a numerical validation**.
 
-- **Sparsity check:** 92.6% of event–centroid pairs are zero, as expected for a peril where most storms do not affect most locations.
+- **Sparsity check:** 92.9% of event–centroid pairs are zero, as expected for a peril where most storms do not affect most locations.
 
 - **Footprint inspection:** coherent cyclone structure, with a compact high-wind core and outward decay.
 
@@ -226,6 +226,14 @@ Data: The data/ directory is not included in the repository because it contains 
 | LitPop | CLIMADA / ETH Zürich | Gridded built-asset exposure proxy |
 | Natural Earth coastlines | Natural Earth | Geodesic distance-to-coast calculation |
 | OSDMA damage data | Odisha State Disaster Management Authority / World Bank study | Odisha-specific vulnerability curve |
+
+---
+
+## Future work
+
+- **Multi-peril extension:** add storm surge and rainfall/inland flooding modules.
+- **Stratified vulnerability:** assign construction-specific damage functions using a building-type inventory rather than a single blended curve.
+- **Insured-loss conversion:** replace LitPop economic exposure with insured values and policy terms to translate economic loss into portfolio loss.
 
 ---
 
