@@ -24,7 +24,7 @@ chain, extended to climate conditioning, uncertainty analysis, and reinsurance l
 | Total modelled exposure | ₹144.86B | LitPop-derived, built-asset proxy |
 | Average Annual Loss (AAL) | ₹1.533B / yr | Odisha-derived vulnerability curve |
 | AAL as % of exposure | 1.06% | Wind peril only |
-| 100-year OEP | ₹32.81B | Supported by ~12 catalogue events ⚠ |
+| 100-year OEP | ₹32.81B | Supported by ~12 loss-producing catalogue events ⚠ |
 | 100-year AEP | ₹35.22B | From 100,000-year simulated Year Loss Table |
 | 100-year TVaR | ₹47.49B | Mean annual loss conditional on exceeding the 1-in-100 AEP threshold |
 | CAT XL Layer 1 (₹10B xs ₹12B) | 2.65% RoL | Technical rate on line |
@@ -42,7 +42,7 @@ Ranked by importance to the reliability and interpretation of modelled loss:
 | 1 | **Vulnerability specification** | ~11.4× spread | Emanuel (US-calibrated) vs OSDMA-derived Odisha curve |
 | 2 | **Hazard intensity / climate** | +10% wind → +40% AAL | Strong non-linearity in damage response |
 | 3 | **Exposure valuation** | ±30% → ±30% AAL | Approximately linear pass-through |
-| 4 | **Tail sampling** | Increasing at RP ≥ 100 | 100-year estimate rests on ~12 events; 200-year on ~6 |
+| 4 | **Tail sampling** | Material at RP ≥ 100 | Split-half 1-in-100 OEP: ₹16.0B vs ₹31.0B; 100-year rests on ~12 loss-producing events, 200-year on ~6 |
 | 5 | **EVT extrapolation** | Not used | No stable GPD regime found: see below |
 
 ![Sensitivity of Average Annual Loss to Key Assumptions](outputs/figures/sensitivity_tornado.png)
@@ -149,9 +149,9 @@ loss do not contribute to the annual aggregate distribution.
 - **Fani loss back-test:** modelled wind loss **₹46.91B** versus **₹93.36B** reported economic loss.
   - The difference is consistent with the model's wind-only scope and proxy exposure base, but this is a **directional back-test, not a calibration target**. The reported figure also includes asset classes and loss types outside the model's scope, so the shortfall cannot be attributed specifically to storm surge or flooding on the basis of this single comparison.
 
-- **Tail support quantified explicitly:** **127 / 51 / 25 / 12 / 6** events support the 10 / 25 / 50 / 100 / 200-year estimates respectively. Estimates become increasingly sampling-sensitive beyond 1-in-50 years; the empirical 1-in-100 and 1-in-200 estimates rest on approximately **12 and 6 catalogue events**, respectively.
+- **Tail support quantified explicitly:** **127 / 51 / 25 / 12 / 6** loss-producing catalogue events support the 10 / 25 / 50 / 100 / 200-year estimates respectively. Estimates become increasingly sampling-sensitive beyond 1-in-50 years; the empirical 1-in-100 and 1-in-200 estimates rest on approximately **12 and 6 loss-producing catalogue events**, respectively.
 
-- **Split-half stability test:** the 100-year estimate showed **substantial instability**, which is reported as a limitation of the empirical tail estimate.
+- **Split-half stability test:** independent estimates from two random halves of the catalogue gave 1-in-100 OEP losses of **₹16.0B and ₹31.0B**, against ₹32.81B for the full catalogue. The 1-in-100 estimate is therefore materially sampling-sensitive, not only the far tail.
 
 ---
 
@@ -169,7 +169,7 @@ loss do not contribute to the annual aggregate distribution.
 
 ## Known limitations
 
-- **Wind peril only.** Storm surge and rainfall-driven flooding are excluded, despite being major loss contributors for Odisha cyclones (Phailin, Fani, Yaas). This is the single largest scope limitation and likely explains a substantial part of the Fani back-test gap.
+- **Wind peril only.** Storm surge and rainfall-driven flooding are excluded, despite being major loss contributors for Odisha cyclones (Phailin, Fani, Yaas). This is the single largest scope limitation, and is one plausible contributor to the Fani back-test gap, though the comparison alone does not establish its share.
 
 - **Exposure is a proxy.** LitPop estimates built-asset value from nightlights and population. It may under-represent informal coastal settlements (low light output, potentially high vulnerability) and excludes agricultural and fishing-sector assets, both material in this region.
 
@@ -179,7 +179,7 @@ loss do not contribute to the annual aggregate distribution.
 
 - **Vulnerability curve vintage.** Post-Phailin and post-Fani improvements in coastal construction standards are unlikely to be fully reflected.
 
-- **Tail estimates become increasingly sampling-sensitive beyond 1-in-50 years.** The empirical 1-in-100 and 1-in-200 estimates are supported by approximately 12 and 6 catalogue events respectively and should be treated as indicative.
+- **Tail estimates become increasingly sampling-sensitive beyond 1-in-50 years.** The empirical 1-in-100 and 1-in-200 estimates are supported by approximately 12 and 6 loss-producing catalogue events respectively and should be treated as indicative.
 
 - **Catalogue ceiling.** Synthetic events derive from 54 historical tracks; the modelled maximum possible loss is bounded by construction and does not represent a physical bound on cyclone loss.
 
@@ -189,17 +189,19 @@ loss do not contribute to the annual aggregate distribution.
 
 ```
 odisha-cyclone-risk/
-
 ├── notebooks/
 │   ├── 01_hazard.ipynb       # cyclone tracks, stochastic perturbation, wind fields, validation
 │   ├── 02_exposure.ipynb     # LitPop exposure generation and spatial QA
 │   └── 03_impact.ipynb       # vulnerability, loss modelling, YLT, EVT, sensitivity and reinsurance
 │
-├── data/                     # raw and intermediate data
+├── data/                     # not tracked - see Reproducing
 ├── outputs/
 │   └── figures/              # analysis figures used in the README
 │
-└── RISK_BRIEF.md             # one-page non-technical risk summary
+├── RISK_BRIEF.md             # one-page non-technical risk summary
+├── environment.yml           # conda environment specification
+├── README.md
+└── .gitignore
 
 ```
 ---
