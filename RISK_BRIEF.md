@@ -10,7 +10,7 @@
 
 ## 1. Summary
 
-Total modelled exposure across the coastal Odisha belt is **₹144.86B**. Expected annual loss from tropical cyclone wind is ₹1.533B, or 1.06% of exposure. This is relatively high for a wind-only estimate, reflecting the steep Odisha-specific vulnerability curve and the concentration of exposure within the coastal study domain. The estimate is highly sensitive to the assumed building vulnerability, which is the dominant source of uncertainty in the analysis.
+Total modelled exposure across the coastal Odisha belt is **$144.86B**. Expected annual loss from tropical cyclone wind is **$1.533B**, or 1.06% of exposure. This is a modelled economic-loss estimate rather than an insured-loss estimate, and its absolute level is sensitive to the exposure–vulnerability transfer used in the analysis. The estimate is highly sensitive to the assumed building vulnerability, which is the dominant source of uncertainty in the analysis.
 
 ---
 
@@ -18,15 +18,15 @@ Total modelled exposure across the coastal Odisha belt is **₹144.86B**. Expect
 
 | Measure | Value | Plain meaning |
 |---|---|---|
-| Exposure | ₹144.86B | Total asset value in the modelled domain |
-| Average Annual Loss | ₹1.533B | Long-run average cost per year |
-| 1-in-100 year loss (occurrence) | ₹32.81B | Loss from a single event at approximately the 1-in-100 OEP level |
-| 1-in-100 year loss (annual aggregate) | ₹35.22B | Total annual loss at approximately the 1-in-100 AEP level |
-| 1-in-100 TVaR | ₹47.49B | Average loss *given* a 1-in-100 year is exceeded |
+| Exposure | $144.86B | Total asset value in the modelled domain |
+| Average Annual Loss | $1.533B | Long-run average cost per year |
+| 1-in-100 year loss (occurrence) | $32.81B | Loss from a single event at approximately the 1-in-100 OEP level |
+| 1-in-100 year loss (annual aggregate) | $35.22B | Total annual loss at approximately the 1-in-100 AEP level |
+| 1-in-100 TVaR | $47.49B | Average loss *given* a 1-in-100 year is exceeded |
 
 ![Baseline Cyclone Loss Exceedance Curves](outputs/figures/oep_aep_curve.png)
 
-*Figure 1. Baseline occurrence and aggregate cyclone loss exceedance curves. The 100-year occurrence and aggregate losses are approximately ₹32.81B and ₹35.22B respectively; tail estimates are increasingly sampling-sensitive beyond 1-in-50 years.*
+*Figure 1. Baseline occurrence and aggregate cyclone loss exceedance curves. The 100-year occurrence and aggregate losses are approximately $32.81B and $35.22B respectively; tail estimates are increasingly sampling-sensitive beyond 1-in-50 years.*
 
 ---
 
@@ -44,9 +44,9 @@ wind intensity raises expected annual loss approximately 40%**.
 
 | Layer | Structure | Expected loss to layer | Technical RoL | Attachment prob. |
 |---|---|---|---|---|
-| 1 | ₹10B xs ₹12B | ₹265.05M | 2.65% | 3.689% |
-| 2 | ₹15B xs ₹22B | ₹202.45M | 1.35% | 1.848% |
-| 3 | ₹20B xs ₹37B | ₹85.60M | 0.43% | 0.836% |
+| 1 | $10B xs $12B | $265.05M | 2.65% | 3.689% |
+| 2 | $15B xs $22B | $202.45M | 1.35% | 1.848% |
+| 3 | $20B xs $37B | $85.60M | 0.43% | 0.836% |
 
 Attachment is anchored near the 1-in-25 year loss, so the cedant retains losses expected
 roughly once a generation and transfers severity above that point. Technical RoL declines up the tower as higher layers become progressively less likely to attach.
@@ -58,22 +58,34 @@ roughly once a generation and transfers severity above that point. Technical RoL
 **Wind only.** Storm surge and rainfall flooding are excluded. For this coastline these are
 material loss drivers, so the figures above should be read as a **partial view of cyclone
 risk, not a total one.** A back-test against Cyclone Fani (2019) gave a modelled wind loss of
-₹46.91B against ₹93.36B of reported economic loss. The difference is consistent with the
-model's wind-only scope and proxy exposure base, but this is a directional back-test rather
-than a calibration target: the reported figure also covers asset classes and loss types
-outside the model.
+**$46.91B**. Published Fani loss estimates are substantially lower, although direct comparison
+is complicated by differences in currency, asset coverage, loss definition, and geographic
+scope. The discrepancy indicates that the current exposure–vulnerability transfer is not
+adequately calibrated for absolute loss estimation, so the Fani comparison is treated as a
+**diagnostic of model behaviour rather than a calibration target**.
 
 **Vulnerability is the dominant uncertainty.** Substituting an alternative, US-calibrated
-damage function reduces expected annual loss by a factor of approximately 11.4x, and moves
-layer pricing correspondingly. Regional vulnerability calibration would likely reduce this uncertainty more than further refinement of the current hazard model
+damage function reduces expected annual loss by a factor of approximately 11.4x and changes
+the modelled expected loss to the reinsurance layers correspondingly. Regional vulnerability
+calibration would likely reduce this uncertainty more than further refinement of the current
+hazard model.
+
+**Vulnerability transfer is unstratified.** The OSDMA-derived damage function represents wind
+damage to coastal buildings, while the LitPop produced-capital exposure represents a broader
+mix of manufactured and built assets. Applying a building-specific damage function uniformly
+across this broader exposure is an important modelling assumption and may materially affect
+absolute loss estimates.
 
 **Tail estimates are sampling-limited.** Estimates become increasingly sampling-sensitive
-beyond 1-in-50 years: the 1-in-100 figure rests on approximately 12 modelled events and the
-1-in-200 on 6. These should be treated as indicative. Statistical extrapolation of the tail
-was tested and rejected because the available exceedances did not support a sufficiently stable parametric fit.
+beyond 1-in-50 years: the 1-in-100 figure is informed by approximately 12 loss-producing
+catalogue events and the 1-in-200 by 6. These should be treated as indicative. Statistical
+extrapolation of the tail was tested and rejected because the available exceedances did not
+support a sufficiently stable parametric fit.
 
-**Economic, not insured, loss.** Figures represent total economic damage to modelled assets,
-not insured loss. Insurance penetration and policy terms are not represented in the model, so insured loss would be expected to differ materially from these economic-loss estimates.
+**Economic, not insured, loss.** Figures represent modelled economic damage to exposed assets,
+not insured loss. Insurance penetration, deductibles, limits, and policy terms are not represented
+in the model, so insured loss would be expected to differ materially from these economic-loss
+estimates.
 
 ---
 

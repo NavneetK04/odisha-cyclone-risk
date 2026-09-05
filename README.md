@@ -21,13 +21,13 @@ chain, extended to climate conditioning, uncertainty analysis, and reinsurance l
 
 | Metric | Value | Notes |
 |---|---|---|
-| Total modelled exposure | ₹144.86B | LitPop-derived, built-asset proxy |
-| Average Annual Loss (AAL) | ₹1.533B / yr | Odisha-derived vulnerability curve |
+| Total modelled exposure | $144.86B | LitPop-derived, built-asset proxy |
+| Average Annual Loss (AAL) | $1.533B / yr | Odisha-derived vulnerability curve |
 | AAL as % of exposure | 1.06% | Wind peril only |
-| 100-year OEP | ₹32.81B | Supported by ~12 loss-producing catalogue events ⚠ |
-| 100-year AEP | ₹35.22B | From 100,000-year simulated Year Loss Table |
-| 100-year TVaR | ₹47.49B | Mean annual loss conditional on exceeding the 1-in-100 AEP threshold |
-| CAT XL Layer 1 (₹10B xs ₹12B) | 2.65% RoL | Technical rate on line |
+| 100-year OEP | $32.81B | Supported by ~12 loss-producing catalogue events ⚠ |
+| 100-year AEP | $35.22B | From 100,000-year simulated Year Loss Table |
+| 100-year TVaR | $47.49B | Mean annual loss conditional on exceeding the 1-in-100 AEP threshold |
+| CAT XL Layer 1 ($10B xs $12B) | 2.65% RoL | Technical rate on line |
 
 ⚠ = estimate carries substantial sampling uncertainty; see [Limitations](#known-limitations).
 
@@ -42,7 +42,7 @@ Ranked by importance to the reliability and interpretation of modelled loss:
 | 1 | **Vulnerability specification** | ~11.4× spread | Emanuel (US-calibrated) vs OSDMA-derived Odisha curve |
 | 2 | **Hazard intensity / climate** | +10% wind → +40% AAL | Strong non-linearity in damage response |
 | 3 | **Exposure valuation** | ±30% → ±30% AAL | Approximately linear pass-through |
-| 4 | **Tail sampling** | Material at RP ≥ 100 | Split-half 1-in-100 OEP: ₹16.0B vs ₹31.0B; 100-year rests on ~12 loss-producing events, 200-year on ~6 |
+| 4 | **Tail sampling** | Material at RP ≥ 100 | Split-half 1-in-100 OEP: $16.0B vs $31.0B; 100-year rests on ~12 loss-producing events, 200-year on ~6 |
 | 5 | **EVT extrapolation** | Not used | No stable GPD regime found: see below |
 
 ![Sensitivity of Average Annual Loss to Key Assumptions](outputs/figures/sensitivity_tornado.png)
@@ -69,12 +69,12 @@ Ranked by importance to the reliability and interpretation of modelled loss:
 ### 2. Exposure
 
 - **Source:** LitPop (nightlights × population), clipped to the study grid
-- **Total exposed value:** ₹144.86B
+- **Total exposed value:** $144.86B
 - **Alignment:** generated on the identical 525-cell grid to guarantee hazard–exposure correspondence by construction
 
 ![Modelled Built-Asset Exposure - Coastal Odisha](outputs/figures/exposure_map.png)
 
-*Figure 2. LitPop-derived built-asset exposure across the 525-cell coastal Odisha study grid; total modelled exposure is ₹144.86B.*
+*Figure 2. LitPop-derived built-asset exposure across the 525-cell coastal Odisha study grid; total modelled exposure is $144.86B.*
 
 ### 3. Vulnerability
 
@@ -124,7 +124,7 @@ loss do not contribute to the annual aggregate distribution.
 
 ![CAT XL Pricing Sensitivity](outputs/figures/cat_xl_sensitivity.png)
 
-*Figure 6. Technical rate-on-line for the CAT XL tower under the primary Odisha/OSDMA-derived vulnerability function and the Emanuel (2011) benchmark. The large reduction in layer burn under the benchmark illustrates how vulnerability uncertainty propagates directly into reinsurance pricing.*
+*Figure 6. Technical rate-on-line for the CAT XL tower under the primary Odisha/OSDMA-derived vulnerability function and the Emanuel (2011) benchmark. The large reduction in layer burn under the benchmark illustrates how vulnerability uncertainty propagates directly into reinsurance layer loss.*
 
 ---
 
@@ -146,12 +146,12 @@ loss do not contribute to the annual aggregate distribution.
 
 **Loss**
 
-- **Fani loss back-test:** modelled wind loss **₹46.91B** versus **₹93.36B** reported economic loss.
-  - The difference is consistent with the model's wind-only scope and proxy exposure base, but this is a **directional back-test, not a calibration target**. The reported figure also includes asset classes and loss types outside the model's scope, so the shortfall cannot be attributed specifically to storm surge or flooding on the basis of this single comparison.
+- **Fani loss back-test:** modelled wind loss **$46.91B**. Published Fani loss estimates are substantially lower, although direct comparison is complicated by differences in currency, asset coverage, loss definition, and geographic scope. The discrepancy indicates that the current exposure–vulnerability transfer is not adequately calibrated for absolute loss estimation.
+  - In particular, the OSDMA-derived vulnerability function represents damage to coastal buildings, while the LitPop produced-capital exposure represents a broader mix of manufactured and built assets. The Fani result is therefore treated as a **diagnostic of model behaviour rather than a calibration target**.
 
 - **Tail support quantified explicitly:** **127 / 51 / 25 / 12 / 6** loss-producing catalogue events support the 10 / 25 / 50 / 100 / 200-year estimates respectively. Estimates become increasingly sampling-sensitive beyond 1-in-50 years; the empirical 1-in-100 and 1-in-200 estimates rest on approximately **12 and 6 loss-producing catalogue events**, respectively.
 
-- **Split-half stability test:** independent estimates from two random halves of the catalogue gave 1-in-100 OEP losses of **₹16.0B and ₹31.0B**, against ₹32.81B for the full catalogue. The 1-in-100 estimate is therefore materially sampling-sensitive, not only the far tail.
+- **Split-half stability test:** independent estimates from two random halves of the catalogue gave 1-in-100 OEP losses of **$16.0B and $31.0B**, against $32.81B for the full catalogue. The 1-in-100 estimate is therefore materially sampling-sensitive, not only the far tail.
 
 ---
 
@@ -169,13 +169,13 @@ loss do not contribute to the annual aggregate distribution.
 
 ## Known limitations
 
-- **Wind peril only.** Storm surge and rainfall-driven flooding are excluded, despite being major loss contributors for Odisha cyclones (Phailin, Fani, Yaas). This is the single largest scope limitation, and is one plausible contributor to the Fani back-test gap, though the comparison alone does not establish its share.
+- **Wind peril only.** Storm surge and rainfall-driven flooding are excluded, despite being major loss contributors for Odisha cyclones (Phailin, Fani, Yaas). This is the single largest scope limitation, but the Fani comparison alone does not establish how much of the modelled-versus-reported loss discrepancy is attributable to these excluded perils.
 
 - **Exposure is a proxy.** LitPop estimates built-asset value from nightlights and population. It may under-represent informal coastal settlements (low light output, potentially high vulnerability) and excludes agricultural and fishing-sector assets, both material in this region.
 
 - **Economic, not insured, loss.** Outputs represent modelled economic loss. The gap between economic and insured loss is the protection gap and is not quantified here.
 
-- **Vulnerability curve applied unstratified.** The OSDMA-derived curve distinguishes construction types, but no spatial building-type inventory was available, so a single blended curve was applied. This discards much of the curve's regional advantage.
+- **Vulnerability transfer to produced capital.** The OSDMA-derived curve represents damage to coastal buildings, while LitPop `fin_mode="pc"` represents produced capital more broadly. Applying a building-specific damage function uniformly to this broader exposure is an important modelling assumption and may materially affect absolute loss estimates.
 
 - **Vulnerability curve vintage.** Post-Phailin and post-Fani improvements in coastal construction standards are unlikely to be fully reflected.
 
