@@ -185,6 +185,18 @@ loss do not contribute to the annual aggregate distribution.
 
 ---
 
+## Relationship to Projects 2 and 3
+
+This project is the first of three on catastrophe risk for the coastal Odisha belt, split the way a catastrophe risk team is split.
+
+- **Project 1, this one.** The risk view: hazard, vulnerability, the 525-cell exposure grid, and the reinsurance structure, priced on a LitPop economic exposure base.
+- [**Project 2, odisha-exposure-quality**](https://github.com/NavneetK04/odisha-exposure-quality). The insured portfolio the risk view runs on, and how data-quality defects propagate into exposure totals, spatial concentration and AAL.
+- [**Project 3, odisha-event-response**](https://github.com/NavneetK04/odisha-event-response). The same risk view run forward in time under forecast uncertainty, for four historical cyclones at five forecast lead times.
+
+Projects 2 and 3 both consume this project's 525-cell grid, and Project 3 additionally uses its Odisha vulnerability curve and rescales its CAT XL layer to the same share of exposure. The absolute-loss calibration limitation recorded above propagates to both: Project 3's maximum modelled loss reaches 96.4% of its portfolio TIV, which is the clearest available symptom of it.
+
+---
+
 ## Repository structure
 
 ```
@@ -235,7 +247,8 @@ Data: The data/ directory is not included in the repository because it contains 
 
 - **Multi-peril extension:** add storm surge and rainfall/inland flooding modules.
 - **Stratified vulnerability:** assign construction-specific damage functions using a building-type inventory rather than a single blended curve.
-- **Insured-loss conversion:** replace LitPop economic exposure with insured values and policy terms to translate economic loss into portfolio loss.
+- **Insured-loss conversion:** replace LitPop economic exposure with insured values and policy terms to translate economic loss into portfolio loss. Done in [Project 2](https://github.com/NavneetK04/odisha-exposure-quality), which builds a synthetic insured portfolio on this grid, and carried into loss in [Project 3](https://github.com/NavneetK04/odisha-event-response). At an illustrative ₹83 per USD, the $144.86B economic exposure here is about ₹12.0 trillion, against which Project 2's clean insured portfolio of ₹168.867B is 1.40%. That ratio is a useful order-of-magnitude check in both directions.
+- **Event response:** the view of risk built here is annual. [Project 3](https://github.com/NavneetK04/odisha-event-response) runs the same hazard grid and vulnerability curve forward under forecast uncertainty, to ask what the model supported at 72, 48, 24 and 12 hours before landfall.
 
 ---
 
